@@ -1,10 +1,10 @@
 /* //////////////////////////////////////////////////////////////////////
 
-  Marcelo Coelho
-  November 6, 2011
+  Marcelo Coelho + Rehmi Post
+  Septmber 23, 2012
   MIT Media Lab
   
-  App for transforming SVG files into Resonetics toolpath.
+  Processing application for transforming SVG files into FIB pattern.
   
   It only scans for simple lines in SVG and ignores paths and polylines.
 
