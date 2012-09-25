@@ -13,6 +13,13 @@
 XMLElement xml;
 PrintWriter output;
 
+// Some set-up variables
+float Depth = 0.500000;
+float EtchingRate = 0.15;
+float Current = 1000; // pA 
+float Time;
+
+
 
 void setup() {
   size(200, 200);
@@ -54,39 +61,38 @@ void setup() {
     float y2 = kid.getFloat("y2");    
 
  
-  output.println("[Pattern_"+(i+1) + "]"); 
-  output.println("Name=Line");
+  	output.println("[Pattern_"+(i+1) + "]"); 
+  	output.println("Name=Line");
   
   
-  // Line length
-  output.println("L="+getLength(x1,x2,y1,y2));
+
+  	output.println("L="+getLength(x1,x2,y1,y2));          // Line length
   
+  	output.println("Angle="+getAngle(x1,x2,y1,y2));		// Line Angle
   
+  	output.println("CenterX="+(x1+x2)/2);					// Center X of Line
   
-  // Line Angle
-  output.println("Angle="+getAngle(x1,x2,y1,y2));
-  
-  
-  // Center X of Line
-  output.println("CenterX="+(x1+x2)/2);
-  
-  
-  // Center Y of Line
-  output.println("CenterY="+(y1+y2)/2);  
+  	output.println("CenterY="+(y1+y2)/2); 				 // Center Y of Line 
 
 
-  // FOOTER PER LINE
-  output.println("Type=2");
-  output.println("Beam=1");
-  output.println("MaterialFile=c:\\xp\\Pattern\\si.mtr");
-  output.println("Depth=1.000000");
-  output.println("Dwell=000001000");
-  output.println("Overlap=50.000000");
-  output.println("Time=0.000254");
+  	// FOOTER PER LINE
+  	output.println("Type=2");    
+  	output.println("Beam=1");
+  	output.println("MaterialFile=c:\\xp\\Pattern\\si.mtr");
+  	output.println("Depth="+ Depth);
+  	output.println("Dwell=0.000001000");
+  	output.println("Overlap=50.000000");
+
+	
+  Time = getLength(x1,x2,y1,y2) * 0.02 * Depth * 1000 / EtchingRate / Current;
+  output.println("Time=" + Time);
+
   output.println("GIS=0");
   output.println("EPD=0");
   output.println("Rotation=0.000000");
-  output.println("PixelsPerMicron=1.585548");  
+
+
+  output.println("PixelsPerMicron=26.947369");  
 
   }
 
