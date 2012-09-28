@@ -19,7 +19,7 @@ float EtchingRate = 0.15;
 float Current = 1000; // pA 
 float Time;
 
-
+float scaling = 1;
 
 void setup() {
   size(200, 200);
@@ -55,10 +55,10 @@ void setup() {
   for (int i = 0; i < numSites; i++) {
     XMLElement kid = xml.getChild(i);
     
-    float x1 = kid.getFloat("x1");
-    float x2 = kid.getFloat("x2");
-    float y1 = kid.getFloat("y1");
-    float y2 = kid.getFloat("y2");    
+    float x1 = kid.getFloat("x1") * scaling;
+    float x2 = kid.getFloat("x2") * scaling;
+    float y1 = kid.getFloat("y1") * scaling;
+    float y2 = kid.getFloat("y2") * scaling;    
 
  
   	output.println("[Pattern_"+(i+1) + "]"); 
