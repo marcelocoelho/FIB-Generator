@@ -78,10 +78,11 @@ void setup() {
   	// FOOTER PER LINE
   	output.println("Type=2");    
   	output.println("Beam=1");
-  	output.println("MaterialFile=c:\\xp\\Pattern\\si.mtr");
+        output.println("MaterialFile=None");
+  	//output.println("MaterialFile=c:\\xp\\Pattern\\si.mtr");
   	output.println("Depth="+ Depth);
-  	output.println("Dwell=0.000001000");
-  	output.println("Overlap=50.000000");
+  	output.println("Dwell=0.001000000");
+  	output.println("Overlap=99.000000");
 
 	
   Time = getLength(x1,x2,y1,y2) * 0.02 * Depth * 1000 / EtchingRate / Current;
@@ -92,7 +93,7 @@ void setup() {
   output.println("Rotation=0.000000");
 
 
-  output.println("PixelsPerMicron=26.947369");  
+  output.println("PixelsPerMicron=16.168421");  
 
   }
 
